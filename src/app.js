@@ -2,6 +2,9 @@ import express from "express";
 
 const app = express();
 
+//configurar o express para receber dados em json
+app.use(express.json());
+
 //MOCK significa simular uma API
 const selecoes = [
   {
@@ -33,6 +36,11 @@ app.get("/", (req, res) => {
 
 app.get("/selecoes", (req, res) => {
     res.status(200).send(selecoes);
+});
+
+app.post('/selecoes', (req, res) => {
+  selecoes.push(req.body);
+  res.status(201).send('seleção adicionada com sucesso');
 });
 
 export default app;
