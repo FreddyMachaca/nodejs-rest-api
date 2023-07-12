@@ -64,4 +64,11 @@ app.delete('/selecoes/:id', (req, res) => { //:id é um parâmetro
   res.status(200).send('seleção com id ' + req.params.id + ' removida com sucesso');
 });
 
+app.put('/selecoes/:id', (req, res) => {
+  let index = buscaIndexSelecao(req.params.id);
+  selecoes[index].selecao = req.body.selecao;
+  selecoes[index].grupo = req.body.grupo;
+  res.json(selecoes);
+});
+
 export default app;
