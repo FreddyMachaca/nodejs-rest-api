@@ -11,4 +11,6 @@ const conexao = mysql.createConnection({
     database: process.env.DB_DATABASE
 });
 
+conexao.connect(); // Conecta a la base de datos
+
 export default conexao; // Exporta la conexión para ser utilizada en otros archivos
